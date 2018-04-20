@@ -1,0 +1,58 @@
+{
+  "project_info": {
+    "project_number": "481158133601",
+    "firebase_url": "https://hollaroo-62aa7.firebaseio.com",
+    "project_id": "hollaroo-62aa7",
+    "storage_bucket": "hollaroo-62aa7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:481158133601:android:0e868db9c0c6f8c5",
+        "android_client_info": {
+          "package_name": "com.kevindom.hollaroo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "481158133601-o5biln1btg3tdvd9fq5ffpki3u1nirrp.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "481158133601-ejg67epnctk15vted23vvau7ia9c5n2k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARRpkJdhrHk5QQq3JcylmbBS2rGMAMMNM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "481158133601-g5lfdm5lasmv9c0iitsu6evndp66ecmv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.kevindom.hollaroo"
+              }
+            },
+            {
+              "client_id": "481158133601-o5biln1btg3tdvd9fq5ffpki3u1nirrp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
