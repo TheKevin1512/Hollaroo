@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { createStore, applyMiddleware, combineReducers } from "redux";
 import { Provider } from "react-redux";
 import { Navigation } from 'react-native-navigation';
+import firebase from 'react-native-firebase';
 import registerScreens from './src/scenes/';
 import * as reducers from "./src/reducers/index";
 import * as appActions from "./src/actions/index";
@@ -19,7 +20,12 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     store.subscribe(this.onStoreUpdate.bind(this));
-    store.dispatch(appActions.appInitialized());
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) 
+        store.dispatch(appActions.login());
+      else
+        store.dispatch(appActions.appInitialized());
+    });
   }
 
   onStoreUpdate() {
@@ -35,7 +41,7 @@ export default class App extends Component {
       case 'login':
         Navigation.startSingleScreenApp({
           screen: {
-            screen: 'Login', 
+            screen: 'Login',
             navigatorStyle: {}, // override the navigator style for the screen, see "Styling the navigator" below (optional)
             navigatorButtons: {} // override the nav buttons for the screen, see "Adding buttons to the navigator" below (optional)
           },

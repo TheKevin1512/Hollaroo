@@ -29,7 +29,7 @@
 		B364D9C6FEB41A0F62C673F6 /* libPods-HollarooTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04BBAAC458BDF3D2C7154ABB /* libPods-HollarooTests.a */; };
 		DD339F46EB8C4E2FBEC697B8 /* libRNFirebase.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB1005C3E05C46D280616046 /* libRNFirebase.a */; };
 		EF3268A8208A13CE007B501D /* libReactNativeNavigation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EF3268A7208A13AD007B501D /* libReactNativeNavigation.a */; };
-		EFEF06BC208A220E008D28A9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFEF06BB208A220E008D28A9 /* GoogleService-Info.plist */; };
+		EFBB768E208DC63C00DB132E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFBB768D208DC63C00DB132E /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -349,7 +349,7 @@
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		B48DD5DD1B1815DDED4C370E /* libPods-Hollaroo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Hollaroo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF32687D208A13AD007B501D /* ReactNativeNavigation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeNavigation.xcodeproj; path = "../node_modules/react-native-navigation/ios/ReactNativeNavigation.xcodeproj"; sourceTree = "<group>"; };
-		EFEF06BB208A220E008D28A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EFBB768D208DC63C00DB132E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EFEF06C7208A2297008D28A9 /* Hollaroo-tvOSTests copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Hollaroo-tvOSTests copy-Info.plist"; path = "/Users/kevindom/ReactNativeProjects/Hollaroo/ios/Hollaroo-tvOSTests copy-Info.plist"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -471,7 +471,7 @@
 		13B07FAE1A68108700A75B9A /* Hollaroo */ = {
 			isa = PBXGroup;
 			children = (
-				EFEF06BB208A220E008D28A9 /* GoogleService-Info.plist */,
+				EFBB768D208DC63C00DB132E /* GoogleService-Info.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -1057,7 +1057,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				EFEF06BC208A220E008D28A9 /* GoogleService-Info.plist in Resources */,
+				EFBB768E208DC63C00DB132E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

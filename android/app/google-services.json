@@ -19,6 +19,14 @@
           "client_type": 3
         },
         {
+          "client_id": "481158133601-pqcthsm91eh20p7moacg9qbnibj7r0nq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kevindom.hollaroo",
+            "certificate_hash": "6bc9711aaa064765079e46bb4ae9d416f0618b08"
+          }
+        },
+        {
           "client_id": "481158133601-ejg67epnctk15vted23vvau7ia9c5n2k.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -36,15 +44,15 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
+              "client_id": "481158133601-o5biln1btg3tdvd9fq5ffpki3u1nirrp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
               "client_id": "481158133601-g5lfdm5lasmv9c0iitsu6evndp66ecmv.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
                 "bundle_id": "com.kevindom.hollaroo"
               }
-            },
-            {
-              "client_id": "481158133601-o5biln1btg3tdvd9fq5ffpki3u1nirrp.apps.googleusercontent.com",
-              "client_type": 3
             }
           ]
         },
