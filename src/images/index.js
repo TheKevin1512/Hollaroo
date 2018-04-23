@@ -1,2 +1,3 @@
-export const messaging = require('./icons/ic_messaging.png');
-export const feed = require('./icons/ic_feed.png');
+export const messaging = require('./icons/messaging.png');
+export const feed = require('./icons/newspaper.png');
+export const add = require('./icons/add.png');

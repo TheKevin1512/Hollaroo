@@ -41,7 +41,7 @@ export default class App extends Component {
       case 'login':
         Navigation.startSingleScreenApp({
           screen: {
-            screen: 'Login',
+            screen: 'LoginScreen',
             navigatorStyle: {}, // override the navigator style for the screen, see "Styling the navigator" below (optional)
             navigatorButtons: {} // override the nav buttons for the screen, see "Adding buttons to the navigator" below (optional)
           },

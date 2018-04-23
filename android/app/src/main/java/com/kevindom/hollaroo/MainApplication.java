@@ -2,14 +2,16 @@ package com.kevindom.hollaroo;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
+import com.kishanjvaghela.cardview.RNCardViewPackage;
 import com.reactnativenavigation.BuildConfig;
 import com.reactnativenavigation.NavigationApplication;
 
-import io.invertase.firebase.RNFirebasePackage;
-import io.invertase.firebase.auth.RNFirebaseAuthPackage;
-
 import java.util.Arrays;
 import java.util.List;
+
+import io.invertase.firebase.RNFirebasePackage;
+import io.invertase.firebase.auth.RNFirebaseAuthPackage;
+import io.invertase.firebase.firestore.RNFirebaseFirestorePackage;
 
 public class MainApplication extends NavigationApplication {
 
@@ -24,8 +26,10 @@ public class MainApplication extends NavigationApplication {
 		// No need to add RnnPackage and MainReactPackage
 		return Arrays.<ReactPackage>asList(
 				new MainReactPackage(),
+				new RNCardViewPackage(),
 				new RNFirebasePackage(),
-				new RNFirebaseAuthPackage()
+				new RNFirebaseAuthPackage(),
+				new RNFirebaseFirestorePackage()
 		);
 	}
 
