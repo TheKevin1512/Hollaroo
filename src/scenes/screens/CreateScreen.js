@@ -9,10 +9,8 @@ import {
     Text,
     View
 } from 'react-native';
-import { Navigation } from 'react-native-navigation';
-import { connect } from 'react-redux';
 import firebase from 'react-native-firebase';
-import * as appActions from '../../actions/index';
+import Post from '../../models/Post';
 
 const db = firebase.firestore();
 
@@ -42,16 +40,14 @@ export default class CreateScreen extends Component {
         if (event.type == 'NavBarButtonPress') {
             if (event.id == 'done') {
                 this._onDoneClicked();
+                this.props.navigator.pop();
             }
         }
     }
 
     _onDoneClicked() {
         db.collection('posts')
-            .add({
-                userId: firebase.auth().currentUser.uid,
-                content: this.state.text
-            })
+            .add(new Post(firebase.auth().currentUser.uid, this.state.text, new Date().toLocaleString()))
             .then((docRef) => {
                 console.log("Successfully written with ID: ", docRef.id);
             })
@@ -91,7 +87,8 @@ const styles = StyleSheet.create({
     textInput: {
         alignSelf: 'stretch',
         maxHeight: 150,
-        fontSize: 20
+        fontSize: 20,
+        margin: 8
     },
     buttonContainer: {
         alignSelf: 'stretch',

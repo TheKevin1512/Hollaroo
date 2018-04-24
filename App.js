@@ -41,9 +41,7 @@ export default class App extends Component {
       case 'login':
         Navigation.startSingleScreenApp({
           screen: {
-            screen: 'LoginScreen',
-            navigatorStyle: {}, // override the navigator style for the screen, see "Styling the navigator" below (optional)
-            navigatorButtons: {} // override the nav buttons for the screen, see "Adding buttons to the navigator" below (optional)
+            screen: 'LoginScreen'
           },
         });
         return;
@@ -56,13 +54,11 @@ export default class App extends Component {
               icon: feed,
               title: 'Feed',
               overrideBackPress: false,
-              navigatorStyle: {}
             },
             {
               screen: 'MessagingTab',
               icon: messaging,
               title: 'Hey',
-              navigatorStyle: {}
             }
           ],
         });
