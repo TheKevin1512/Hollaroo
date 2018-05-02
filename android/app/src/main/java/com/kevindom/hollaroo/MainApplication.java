@@ -9,6 +9,7 @@ import com.reactnativenavigation.NavigationApplication;
 import java.util.Arrays;
 import java.util.List;
 
+import co.apptailor.googlesignin.RNGoogleSigninPackage;
 import io.invertase.firebase.RNFirebasePackage;
 import io.invertase.firebase.auth.RNFirebaseAuthPackage;
 import io.invertase.firebase.firestore.RNFirebaseFirestorePackage;
@@ -29,7 +30,8 @@ public class MainApplication extends NavigationApplication {
 				new RNCardViewPackage(),
 				new RNFirebasePackage(),
 				new RNFirebaseAuthPackage(),
-				new RNFirebaseFirestorePackage()
+				new RNFirebaseFirestorePackage(),
+				new RNGoogleSigninPackage()
 		);
 	}
 

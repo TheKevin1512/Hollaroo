@@ -1,36 +1,32 @@
 import React, { Component } from 'react';
 import {
-    Text,
-    Button,
-    View
+    Button
 } from 'react-native';
 import { connect } from 'react-redux';
+import { GoogleSignin } from 'react-native-google-signin';
 import firebase from 'react-native-firebase';
 import * as appActions from '../../actions/index';
 
 export class LoginScreen extends Component {
 
     render() {
-        return (
-            <View>
-                <Button large onPress={() => this.onLoginPress()} title="Login">
-                    <Text> Login</Text>
-                </Button>
-            </View>
-
-        );
+        return <Button large title="Login" onPress={this._signIn.bind(this)}>Login!</Button>
     }
 
-    onLoginPress() {
-        firebase
-            .auth()
-            .signInAnonymouslyAndRetrieveData()
-            .then((credential) => {
-                if (credential) {
-                    this.props.dispatch(appActions.login());
-                }
-            })
-            .catch((error) => console.log("Could not authenticate: ", error));
+    async _signIn() {
+        try {
+            await GoogleSignin.configure({
+                iosClientId: '481158133601-g5lfdm5lasmv9c0iitsu6evndp66ecmv.apps.googleusercontent.com',
+                shouldFetchBasicProfile: true
+            });
+
+            const data = await GoogleSignin.signIn();
+            const credential = firebase.auth.GoogleAuthProvider.credential(data.idToken, data.accessToken)
+            firebase.auth().signInAndRetrieveDataWithCredential(credential);
+        } catch (e) {
+            //TODO: Animate login button again.
+            console.error(e);
+        }
     }
 }
 

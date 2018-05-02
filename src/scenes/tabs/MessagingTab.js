@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import {
-    AppRegistry,
     StyleSheet,
     Text,
     View
 } from 'react-native';
-import { Navigation } from 'react-native-navigation';
 
 export default class MessagingTab extends Component {
     render() {

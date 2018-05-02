@@ -14,6 +14,7 @@
 
 #import <React/RCTRootView.h>
 @import Firebase;
+#import <RNGoogleSignin/RNGoogleSignin.h>
 
 @implementation AppDelegate
 
@@ -33,4 +34,10 @@
   return YES;
 }
 
+// add this method before @end
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+  
+  return [RNGoogleSignin application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
+}
 @end

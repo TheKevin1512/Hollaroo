@@ -8,10 +8,8 @@ import {
     Image
 } from 'react-native';
 import CardView from 'react-native-cardview';
-import firebase from 'react-native-firebase';
+import { getFeed } from '../../firebase/FeedManager';
 import { add, defaultUser } from '../../images'
-
-const db = firebase.firestore();
 
 export default class FeedTab extends Component {
     static navigatorButtons = {
@@ -46,17 +44,9 @@ export default class FeedTab extends Component {
     }
 
     componentDidMount() {
-        db
-            .collection('posts')
-            .onSnapshot((snapshot) => {
-                let posts = []
-                snapshot.forEach((post) => {
-                    posts.push(post.data());
-                })
-                this.setState({ posts });
-            }, (error) => {
-                console.error("Could not retrieve snapshot for feed", error);
-            });
+        getFeed((posts) => {
+            this.setState({ posts });
+        });
     }
 
     onNavigatorEvent(event) {
@@ -84,9 +74,9 @@ export default class FeedTab extends Component {
                             cardElevation={3}
                             cornerRadius={5}>
                             <View style={styles.profileContainer}>
-                                <Image source={defaultUser} />
+                                <Image resizeMode="stretch" style={styles.itemProfileImage} source={{ uri: item.photoURL }} />
                                 <View style={styles.userContainer}>
-                                    <Text style={styles.itemUsername}>{item.userId}</Text>
+                                    <Text style={styles.itemUsername}>{item.displayName}</Text>
                                     <Text style={styles.itemDateTime}>{item.dateTime}</Text>
                                 </View>
                             </View>
@@ -118,6 +108,10 @@ const styles = StyleSheet.create({
     profileContainer: {
         flex: 1,
         flexDirection: 'row'
+    },
+    itemProfileImage: {
+        width: 48,
+        height: 48
     },
     userContainer: {
         flex: 1,

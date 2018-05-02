@@ -8,6 +8,7 @@ import * as reducers from "./src/reducers/index";
 import * as appActions from "./src/actions/index";
 import thunk from "redux-thunk";
 import { messaging, feed } from './src/images';
+import { createUser } from './src/firebase/UserManager';
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const reducer = combineReducers(reducers);
@@ -21,10 +22,12 @@ export default class App extends Component {
     super(props);
     store.subscribe(this.onStoreUpdate.bind(this));
     firebase.auth().onAuthStateChanged((user) => {
-      if (user) 
+      if (user) {
+        createUser(user._user);
         store.dispatch(appActions.login());
-      else
+      } else {
         store.dispatch(appActions.appInitialized());
+      }
     });
   }
 

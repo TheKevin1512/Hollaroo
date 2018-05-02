@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import {
-    AppRegistry,
     Button,
     TextInput,
     StyleSheet,
     Platform,
-    TouchableNativeFeedback,
     Text,
     View
 } from 'react-native';
 import firebase from 'react-native-firebase';
+import { createPost } from '../../firebase/FeedManager';
 import Post from '../../models/Post';
-
-const db = firebase.firestore();
 
 export default class CreateScreen extends Component {
 
@@ -46,14 +43,15 @@ export default class CreateScreen extends Component {
     }
 
     _onDoneClicked() {
-        db.collection('posts')
-            .add(new Post(firebase.auth().currentUser.uid, this.state.text, new Date().toLocaleString()))
-            .then((docRef) => {
-                console.log("Successfully written with ID: ", docRef.id);
-            })
-            .catch((error) => {
-                console.error("Error adding document", error);
-            })
+        const currentUser = firebase.auth().currentUser;
+        const post = new Post(
+            currentUser.uid, 
+            currentUser.displayName, 
+            currentUser.photoURL, 
+            this.state.text, 
+            new Date().toLocaleString()
+        );
+        createPost(post);
     }
 
     render() {
@@ -82,7 +80,8 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'space-between',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: 'white'
     },
     textInput: {
         alignSelf: 'stretch',
