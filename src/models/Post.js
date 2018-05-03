@@ -1,6 +1,7 @@
 export default class Post {
     
-    constructor(uid, displayName, photoURL, content, dateTime) {
+    constructor(id, uid, displayName, photoURL, content, dateTime) {
+        this.id = id,
         this.uid = uid,
         this.displayName = displayName;
         this.photoURL = photoURL;

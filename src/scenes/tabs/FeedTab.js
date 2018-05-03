@@ -2,26 +2,21 @@ import React, { Component } from 'react';
 import {
     StyleSheet,
     Text,
-    View,
     Platform,
-    FlatList,
-    Image
 } from 'react-native';
-import CardView from 'react-native-cardview';
+import FeedAdapter from '../../adapter/FeedAdapter';
 import { getFeed } from '../../firebase/FeedManager';
-import { add, defaultUser } from '../../images'
+import { add } from '../../images'
 
 export default class FeedTab extends Component {
+
     static navigatorButtons = {
         ...Platform.select({
             ios: {
                 rightButtons: [
                     {
-                        title: 'Create',
                         id: 'create',
-                        buttonColor: 'blue',
-                        buttonFontSize: 14,
-                        buttonFontWeight: '600'
+                        systemItem: 'compose'
                     }
                 ]
             },
@@ -53,7 +48,7 @@ export default class FeedTab extends Component {
         if (event.type == 'NavBarButtonPress') {
             if (event.id == 'create') {
                 this.props.navigator.push({
-                    screen: 'CreateScreen',
+                    screen: 'CreatePostScreen',
                     title: 'Create a post'
                 })
             }
@@ -64,71 +59,6 @@ export default class FeedTab extends Component {
         if (this.state.posts.length === 0) {
             return <Text>Loading ...</Text>
         }
-        return (
-            <View style={styles.container}>
-                <FlatList
-                    data={this.state.posts}
-                    renderItem={({ item }) => {
-                        return <CardView
-                            style={styles.itemContainer}
-                            cardElevation={3}
-                            cornerRadius={5}>
-                            <View style={styles.profileContainer}>
-                                <Image resizeMode="stretch" style={styles.itemProfileImage} source={{ uri: item.photoURL }} />
-                                <View style={styles.userContainer}>
-                                    <Text style={styles.itemUsername}>{item.displayName}</Text>
-                                    <Text style={styles.itemDateTime}>{item.dateTime}</Text>
-                                </View>
-                            </View>
-                            <Text style={styles.itemContent}>{item.content}</Text>
-                        </CardView>
-                    }}
-                    keyExtractor={(item, index) => index.toString()} />
-            </View>
-        )
+        return <FeedAdapter feed={this.state.posts} />
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#F5FCFF'
-    },
-    itemContainer: {
-        flex: 1,
-        flexDirection: 'column',
-        backgroundColor: 'white',
-        minHeight: 75,
-        margin: 8,
-        flex: 1,
-        flexDirection: 'column',
-        alignSelf: 'stretch',
-        padding: 8
-    },
-    profileContainer: {
-        flex: 1,
-        flexDirection: 'row'
-    },
-    itemProfileImage: {
-        width: 48,
-        height: 48
-    },
-    userContainer: {
-        flex: 1,
-        flexDirection: 'column',
-        padding: 8
-    },
-    itemUsername: {
-        color: '#2F4F4F',
-        fontWeight: 'bold',
-        fontSize: 16
-    },
-    itemDateTime: {
-        color: 'gray',
-        fontSize: 13
-    },
-    itemContent: {
-        padding: 8,
-        alignSelf: 'center'
-    }
-});

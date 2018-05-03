@@ -55,13 +55,13 @@ export default class App extends Component {
             {
               screen: 'FeedTab',
               icon: feed,
-              title: 'Feed',
+              title: 'Hollaroo',
               overrideBackPress: false,
             },
             {
               screen: 'MessagingTab',
               icon: messaging,
-              title: 'Hey',
+              title: 'Messages',
             }
           ],
         });

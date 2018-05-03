@@ -9,19 +9,15 @@ import {
 } from 'react-native';
 import firebase from 'react-native-firebase';
 import { createPost } from '../../firebase/FeedManager';
-import Post from '../../models/Post';
 
-export default class CreateScreen extends Component {
+export default class CreatePostScreen extends Component {
 
     static navigatorButtons = {
         ...Platform.select({
             ios: {
                 rightButtons: [{
-                    title: 'Done',
                     id: 'done',
-                    buttonColor: 'blue',
-                    buttonFontSize: 14,
-                    buttonFontWeight: '600'
+                    systemItem: 'done'
                 }]
             }
         })
@@ -44,14 +40,13 @@ export default class CreateScreen extends Component {
 
     _onDoneClicked() {
         const currentUser = firebase.auth().currentUser;
-        const post = new Post(
+        createPost(
             currentUser.uid, 
             currentUser.displayName, 
             currentUser.photoURL, 
             this.state.text, 
             new Date().toLocaleString()
         );
-        createPost(post);
     }
 
     render() {

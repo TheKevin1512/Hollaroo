@@ -1,17 +1,14 @@
 import firebase from 'react-native-firebase';
+import Post from '../models/Post';
 const db = firebase.firestore();
 const COLLECTION_POSTS = 'posts';
 
-export function createPost(post) {
-    db
-        .collection(COLLECTION_POSTS)
-        .add(post)
-        .then((docRef) => {
-            console.log("Successfully written with ID: ", docRef.id);
-        })
-        .catch((error) => {
-            console.error("Error adding document", error);
-        })
+export function createPost(uid, name, photoURL, content, dateTime) {
+    const postRef = db.collection(COLLECTION_POSTS).doc();
+    const post = new Post(postRef.id, uid, name, photoURL, content, dateTime);
+    postRef.set(post).catch((error) => {
+        console.error("Error adding document", error);
+    });
 }
 
 export function getFeed(onSucces) {
